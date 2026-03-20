@@ -2,7 +2,7 @@
 name = "microcwt"
 version = "0.1.0"
 authors = ["Bjorn Beishline"]
-description = "Embedded-friendly Continuous Wavelet Transform (CWT) library based on fastcwt."
+description = "Embedded-friendly Continuous Wavelet Transform (CWT) library based on fCWT."
 documentation = "https://docs.rs/microcwt"
 readme = "README.md"
 license = "MIT OR Apache-2.0"
@@ -13,4 +13,6 @@ categories = ["algorithms", "mathematics", "science", "embedded", "no-std"]
 edition = "2024"
 
 [dependencies]
+num = { version = "0.4", features = ["libm"], default-features = false }
 microfft = "0.6.0"
+# libm = "0.2"
