@@ -8,6 +8,7 @@ pub trait Wavelet {
     fn generate_freq(&mut self, size: usize);
     fn get_support(&self, scale: f32) -> i32;
     fn get_wavelet(&self, scale: f32, pwav: &mut [Complex<f32>]);
+    fn get_four_wavelen(&self) -> f32;
 }
 
 pub struct Morlet {
@@ -90,5 +91,9 @@ impl Wavelet for Morlet {
         for t in 0..pn {
             pwav[t] = Complex::new(real[t], imag[t]);
         }
+    }
+
+    fn get_four_wavelen(&self) -> f32 {
+        self.four_wavelen
     }
 }
