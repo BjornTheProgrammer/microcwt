@@ -1,6 +1,8 @@
 #![no_std]
 
+use alloc::vec;
 use alloc::vec::Vec;
+use microfft::Complex32;
 use num::Complex;
 
 use crate::{scales::Scales, wavelet::Wavelet};
@@ -41,13 +43,15 @@ impl<'a> MicroCwt<'a> {
         }
     }
 
-    pub fn cwt(
-        input: Vec<f32>,
-        size: usize,
-        output: Vec<Complex<f32>>,
-        scales: &mut Scales,
-        complexinput: bool,
-    ) {
-        let nt: usize = size.next_power_of_two();
+    pub fn cwt(input: &[f32], output: Vec<Complex<f32>>, scales: &mut Scales, complex_input: bool) {
+        let nt: usize = input.len().next_power_of_two();
+        let newsize = 1 << nt;
+
+        let mut o1 = vec![Complex32::new(0.0, 0.0); newsize];
+
+        match complex_input {
+            true => todo!(),
+            false => todo!(),
+        }
     }
 }
