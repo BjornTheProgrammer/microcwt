@@ -14,5 +14,16 @@ edition = "2024"
 
 [dependencies]
 num = { version = "0.4", features = ["libm"], default-features = false }
-microfft = "0.6.0"
+microfft = { version = "0.6.0", default-features = false, features = [
+    "size-512",
+    "size-1024",
+    "size-2048",
+    "size-4096",
+    "size-8192",
+    "size-16384",
+] }
 # libm = "0.2"
+
+[dev-dependencies]
+# lets tests use std even though lib is no_std
+num = { version = "0.4", features = ["std"] }
